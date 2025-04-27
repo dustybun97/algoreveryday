@@ -16,3 +16,41 @@
 
 //task
 //1.สร้าง array ใหม่ โดยใช้ spread operation clone array ตั้งต้นเพื่อ ไม่ให้ array ตั้งต้นเปลี่ยนแปลง
+//2.loop ผ่านสมาชิกทุกตัว และ if ตามเงื่อนไขที่โจทย์ต้องการ และเพิ่มเงื่อนไขด้วย &&
+function fill_gaps(arr) {
+    const result = [...arr];
+
+    for (let i = 1; i < result.length - 1; i++) {
+        if (result[i] === null && result[i - 1] !== null && result[i - 1] === result[i + 1]) {
+            result[i] = result[i - 1];
+        }
+    }
+
+    return result;
+}
+
+console.log(fill_gaps([1, null, 1])); 
+output:// [1, 1, 1]
+
+console.log(fill_gaps([1, null, null, null, 1])); 
+output:// [1, 1, 1, 1, 1]
+
+console.log(fill_gaps([1, null, 1, 2, null, 2])); 
+output:// [1, 1, 1, 2, 2, 2]
+
+console.log(fill_gaps([1, null, 2, null, 2, null, 1])); 
+output:// [1, null, 2, 2, 2, null, 1]
+
+console.log(fill_gaps([1, null, 2])); 
+output:// [1, null, 2]
+
+console.log(fill_gaps([null, 1, null])); 
+output:// [null, 1, null]
+
+console.log(fill_gaps(['codewars', null, null, 'codewars', 'real work', null, null, 'real work']));
+// output:[
+//     'codewars',  null,
+//     null,        'codewars',
+//     'real work', null,
+//     null,        'real work'
+//   ]
