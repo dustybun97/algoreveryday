@@ -1,0 +1,51 @@
+//28/4/25
+// You are in charge of the cake for a child's birthday. It will have one candle for each year of their total age. They will only be able to blow out the tallest of the candles. Your task is to count how many candles are the tallest.
+
+// Example
+
+// The tallest candles are 4 units high. There are 2 candles with this height, so the function should return 2.
+
+// Function Description
+
+// Complete the function  with the following parameter(s):
+
+// : the candle heights
+// Returns
+
+// : the number of candles that are tallest
+// Input Format
+
+// The first line contains a single integer, , the size of .
+// The second line contains  space-separated integers, where each integer  describes the height of .
+
+// Constraints
+
+// Sample Input 0
+
+// 4
+// 3 2 1 3
+// Sample Output 0
+
+// 2
+// Explanation 0
+
+// Candle heights are . The tallest candles are  units, and there are  of them.
+
+//task
+//1.ให้นับจำนวนที่มากที่สุดที่ซ้ำกัน ต้อง let variable มาเก็บค่า
+//2.หาค่าสูงสุดโดย let variable และใช้ Math.max
+//3.loop สมาชิกทุกตัว เทียบค่ากัน ถ้า index ไหนเท่ากับ max ให้ result ++
+//4.return result
+let candles = [4, 3, 2, 1, 3,3];
+function birthdayCake(arr) {
+  let max = Math.max(...candles);
+  let result = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === max) {
+      result++;
+    }
+  }
+  return result;
+}
+
+console.log(birthdayCake(candles));
